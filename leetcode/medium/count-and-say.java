@@ -47,10 +47,10 @@ Constraints:
 
 Follow up: Could you solve it iteratively?
 */
-// URL: https://leetcode.com/problems/count-and-say/description/
+// URL: https://leetcode.com/problems/count-and-say/
 
-class Solution {
-    public String countAndSay(int n) {
-        st
-    }
+class Solution {
+    public String countAndSay(int n) {
+        st
+    }
 }
