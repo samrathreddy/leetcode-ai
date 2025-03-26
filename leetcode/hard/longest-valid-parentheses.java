@@ -35,6 +35,10 @@ Constraints:
  * 0 <= s.length <= 3 * 104
  * s[i] is '(', or ')'.
 */
-// URL: https://leetcode.com/problems/longest-valid-parentheses/submissions/1587061138/
+// URL: https://leetcode.com/problems/longest-valid-parentheses/
 
-p
+public class Solution {
+public int longestValidParentheses(String s) {
+  
+    }
+}
