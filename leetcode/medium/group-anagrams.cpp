@@ -37,21 +37,11 @@ Constraints:
  * 0 <= strs[i].length <= 100
  * strs[i] consists of lowercase English letters.
 */
-// URL: https://leetcode.com/problems/group-anagrams/submissions/1587111350/
+// URL: https://leetcode.com/problems/group-anagrams/
 
-class Solution {
+class Solution {
 public:
-    vector<vector<string>> groupAnagrams(vector<string>& strs) {
-        unordered_map<string, vector<string>> mp;
-        for (string s : strs) {
-            string t = s; 
-            sort(t.begin(), t.end());
-            mp[t].push_back(s);
-        }
-        vector<vector<string>> anagrams;
-        for (auto p : mp) { 
-            anagrams.push_back(p.second);
-        }
-        return anagrams;
-    }
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        
+    }
 };
