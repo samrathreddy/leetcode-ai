@@ -37,8 +37,4 @@ Constraints:
 */
 // URL: https://leetcode.com/problems/longest-valid-parentheses/
 
-public class Solution {
-public int longestValidParentheses(String s) {
-  
-    }
-}
+p
