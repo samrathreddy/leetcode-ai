@@ -43,16 +43,14 @@ public int longestValidParentheses(String s) {
     s += "x";
     Stack<Integer> stack = new Stack<>();
     for(int i = 0; i < s.length(); i++){
-        if(s.charAt(i) == ')' && !stack.empty() && 
-s.charAt(stack.peek())== '(')
+        if(s.charAt(i) == ')' && !stack.empty() && s.charAt(stack.peek())== '(')
             stack.pop();
         else{
             if(stack.empty()){
                 max = Math.max(max, i);
             }
             else
-                max = Math.max(max, i-stack.peek()
--1);
+                max = Math.max(max, i-stack.peek()-1);
             stack.push(i);
         }
     }
