@@ -29,34 +29,30 @@ Constraints:
 */
 // URL: https://leetcode.com/problems/multiply-strings/
 
-·‌·‌·‌·‌private·‌StringBuilder·‌sumResults(ArrayList<ArrayList<Integer>>·‌results)·‌{
-·‌·‌·‌·‌·‌·‌·‌·‌//·‌Initialize·‌answer·‌as·‌a·‌number·‌from·‌results.
-·‌·‌·‌·‌·‌·‌·‌·‌ArrayList<Integer>·‌answer·‌=·‌new·‌ArrayList<>(
-·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌results.get(results.size()·‌-·‌1)
-·‌·‌·‌·‌·‌·‌·‌·‌);
-·‌·‌·‌·‌·‌·‌·‌·‌ArrayList<Integer>·‌newAnswer·‌=·‌new·‌ArrayList<>();
+            return "0";
+        }
 
-·‌·‌·‌·‌·‌·‌·‌·‌//·‌Sum·‌each·‌digit·‌from·‌answer·‌and·‌result
-·‌·‌·‌·‌·‌·‌·‌·‌for·‌(int·‌j·‌=·‌0;·‌j·‌<·‌results.size()·‌-·‌1;·‌++j)·‌{
-·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌ArrayList<Integer>·‌result·‌=·‌new·‌ArrayList<>(results.get(j));
-·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌newAnswer·‌=·‌new·‌ArrayList<>();
+        StringBuilder firstNumber = new StringBuilder(num1);
+        StringBuilder secondNumber = new StringBuilder(num2);
 
-·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌int·‌carry·‌=·‌0;
+        // Reverse both the numbers.
+        firstNumber.reverse();
+        secondNumber.reverse();
 
-·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌for·‌(int·‌i·‌=·‌0;·‌i·‌<·‌answer.size()·‌||·‌i·‌<·‌result.size();·‌++i)·‌{
-·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌//·‌If·‌answer·‌is·‌shorter·‌than·‌result·‌or·‌vice·‌versa,·‌use·‌0·‌as·‌the·‌
-current·‌digit.
-·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌int·‌digit1·‌=·‌i·‌<·‌result.size()·‌?·‌result.get(i)·‌:·‌0;
-·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌int·‌digit2·‌=·‌i·‌<·‌answer.size()·‌?·‌answer.get(i)·‌:·‌0;
-·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌//·‌Add·‌current·‌digits·‌of·‌both·‌numbers.
-·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌int·‌sum·‌=·‌digit1·‌+·‌digit2·‌+·‌carry;
-·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌//·‌Set·‌carry·‌equal·‌to·‌the·‌tens·‌place·‌digit·‌of·‌sum.
-·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌carry·‌=·‌sum·‌/·‌10;
-·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌//·‌Append·‌the·‌ones·‌place·‌digit·‌of·‌sum·‌to·‌answer.
-·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌newAnswer.add(sum·‌%·‌10);
-·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌}
+        // For each digit in secondNumber, multipy the digit by firstNumber and
+        // store the multiplication result (reversed) in results.
+        ArrayList<ArrayList<Integer>> results = new ArrayList<>();
+        for (int i = 0; i < secondNumber.length(); ++i) {
+            results.add(
+                multiplyOneDigit(firstNumber, secondNumber.charAt(i), i)
+            );
+        }
 
-·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌if·‌(carry·‌!=·‌0)·‌{
-·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌newAnswer.add(carry);
-·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌}
-            answer = newAnswer;
+        // Add all the results in the results array, and store the sum in the answer string.
+        StringBuilder answer = sumResults(results);
+
+        // answer is reversed, so reverse it to get the final answer.
+        answer.reverse();
+        return answer.toString();
+    }
+}
