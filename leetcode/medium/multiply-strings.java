@@ -29,34 +29,34 @@ Constraints:
 */
 // URL: https://leetcode.com/problems/multiply-strings/
 
-                newAnswer.add(sum % 10);
-            }
+·‌·‌·‌·‌private·‌StringBuilder·‌sumResults(ArrayList<ArrayList<Integer>>·‌results)·‌{
+·‌·‌·‌·‌·‌·‌·‌·‌//·‌Initialize·‌answer·‌as·‌a·‌number·‌from·‌results.
+·‌·‌·‌·‌·‌·‌·‌·‌ArrayList<Integer>·‌answer·‌=·‌new·‌ArrayList<>(
+·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌results.get(results.size()·‌-·‌1)
+·‌·‌·‌·‌·‌·‌·‌·‌);
+·‌·‌·‌·‌·‌·‌·‌·‌ArrayList<Integer>·‌newAnswer·‌=·‌new·‌ArrayList<>();
 
-            if (carry != 0) {
-                newAnswer.add(carry);
-            }
-                int digit2 = i < answer.size() ? answer.get(i) : 0;
-                // Add current digits of both numbers.
-                int sum = digit1 + digit2 + carry;
-                // Set carry equal to the tens place digit of sum.
-                carry = sum / 10;
-                // Append the ones place digit of sum to answer.
+·‌·‌·‌·‌·‌·‌·‌·‌//·‌Sum·‌each·‌digit·‌from·‌answer·‌and·‌result
+·‌·‌·‌·‌·‌·‌·‌·‌for·‌(int·‌j·‌=·‌0;·‌j·‌<·‌results.size()·‌-·‌1;·‌++j)·‌{
+·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌ArrayList<Integer>·‌result·‌=·‌new·‌ArrayList<>(results.get(j));
+·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌newAnswer·‌=·‌new·‌ArrayList<>();
 
-            int carry = 0;
+·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌int·‌carry·‌=·‌0;
 
-            for (int i = 0; i < answer.size() || i < result.size(); ++i) {
-                // If answer is shorter than result or vice versa, use 0 as the current digit.
-                int digit1 = i < result.size() ? result.get(i) : 0;
-        ArrayList<Integer> newAnswer = new ArrayList<>();
+·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌for·‌(int·‌i·‌=·‌0;·‌i·‌<·‌answer.size()·‌||·‌i·‌<·‌result.size();·‌++i)·‌{
+·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌//·‌If·‌answer·‌is·‌shorter·‌than·‌result·‌or·‌vice·‌versa,·‌use·‌0·‌as·‌the·‌
+current·‌digit.
+·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌int·‌digit1·‌=·‌i·‌<·‌result.size()·‌?·‌result.get(i)·‌:·‌0;
+·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌int·‌digit2·‌=·‌i·‌<·‌answer.size()·‌?·‌answer.get(i)·‌:·‌0;
+·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌//·‌Add·‌current·‌digits·‌of·‌both·‌numbers.
+·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌int·‌sum·‌=·‌digit1·‌+·‌digit2·‌+·‌carry;
+·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌//·‌Set·‌carry·‌equal·‌to·‌the·‌tens·‌place·‌digit·‌of·‌sum.
+·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌carry·‌=·‌sum·‌/·‌10;
+·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌//·‌Append·‌the·‌ones·‌place·‌digit·‌of·‌sum·‌to·‌answer.
+·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌newAnswer.add(sum·‌%·‌10);
+·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌}
 
-        // Sum each digit from answer and result
-        for (int j = 0; j < results.size() - 1; ++j) {
-            ArrayList<Integer> result = new ArrayList<>(results.get(j));
-            newAnswer = new ArrayList<>();
-    private StringBuilder sumResults(ArrayList<ArrayList<Integer>> results) {
-        // Initialize answer as a number from results.
-        ArrayList<Integer> answer = new ArrayList<>(
-            results.get(results.size() - 1)
-        );
-class Solution {
-    // Calculate the sum of all of the results from multiplyOneDigit.
+·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌if·‌(carry·‌!=·‌0)·‌{
+·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌newAnswer.add(carry);
+·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌·‌}
+            answer = newAnswer;
