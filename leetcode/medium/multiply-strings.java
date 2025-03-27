@@ -27,17 +27,36 @@ Constraints:
  * num1 and num2 consist of digits only.
  * Both num1 and num2 do not contain any leading zero, except the number 0 itself.
 */
-// URL: https://leetcode.com/problems/multiply-strings/submissions/1588084322/
+// URL: https://leetcode.com/problems/multiply-strings/
 
-import java.math.BigInteger;
+                newAnswer.add(sum % 10);
+            }
 
-class Solution {
-    public String multiply(String num1, String num2) {
-        BigInteger one = new BigInteger(num1);
-        BigInteger two = new BigInteger(num2);
+            if (carry != 0) {
+                newAnswer.add(carry);
+            }
+                int digit2 = i < answer.size() ? answer.get(i) : 0;
+                // Add current digits of both numbers.
+                int sum = digit1 + digit2 + carry;
+                // Set carry equal to the tens place digit of sum.
+                carry = sum / 10;
+                // Append the ones place digit of sum to answer.
 
-        BigInteger result = one.multiply(two);
+            int carry = 0;
 
-        return result.toString();
-    }
-}
+            for (int i = 0; i < answer.size() || i < result.size(); ++i) {
+                // If answer is shorter than result or vice versa, use 0 as the current digit.
+                int digit1 = i < result.size() ? result.get(i) : 0;
+        ArrayList<Integer> newAnswer = new ArrayList<>();
+
+        // Sum each digit from answer and result
+        for (int j = 0; j < results.size() - 1; ++j) {
+            ArrayList<Integer> result = new ArrayList<>(results.get(j));
+            newAnswer = new ArrayList<>();
+    private StringBuilder sumResults(ArrayList<ArrayList<Integer>> results) {
+        // Initialize answer as a number from results.
+        ArrayList<Integer> answer = new ArrayList<>(
+            results.get(results.size() - 1)
+        );
+class Solution {
+    // Calculate the sum of all of the results from multiplyOneDigit.
