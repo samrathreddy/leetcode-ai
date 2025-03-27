@@ -29,30 +29,34 @@ Constraints:
 */
 // URL: https://leetcode.com/problems/multiply-strings/
 
-            return "0";
-        }
 
-        StringBuilder firstNumber = new StringBuilder(num1);
-        StringBuilder secondNumber = new StringBuilder(num2);
+            if (carry != 0) {
+                newAnswer.add(carry);
+            }
+                newAnswer.add(sum % 10);
+            }
+                int sum = digit1 + digit2 + carry;
+                // Set carry equal to the tens place digit of sum.
+                carry = sum / 10;
+                // Append the ones place digit of sum to answer.
+                // Add current digits of both numbers.
+                // If answer is shorter than result or vice versa, use 0 as the current digit.
+                int digit1 = i < result.size() ? result.get(i) : 0;
+                int digit2 = i < answer.size() ? answer.get(i) : 0;
+            for (int i = 0; i < answer.size() || i < result.size(); ++i) {
+            int carry = 0;
 
-        // Reverse both the numbers.
-        firstNumber.reverse();
-        secondNumber.reverse();
+            newAnswer = new ArrayList<>();
 
-        // For each digit in secondNumber, multipy the digit by firstNumber and
-        // store the multiplication result (reversed) in results.
-        ArrayList<ArrayList<Integer>> results = new ArrayList<>();
-        for (int i = 0; i < secondNumber.length(); ++i) {
-            results.add(
-                multiplyOneDigit(firstNumber, secondNumber.charAt(i), i)
-            );
-        }
+            ArrayList<Integer> result = new ArrayList<>(results.get(j));
+        for (int j = 0; j < results.size() - 1; ++j) {
+        // Sum each digit from answer and result
 
-        // Add all the results in the results array, and store the sum in the answer string.
-        StringBuilder answer = sumResults(results);
-
-        // answer is reversed, so reverse it to get the final answer.
-        answer.reverse();
-        return answer.toString();
-    }
-}
+        ArrayList<Integer> newAnswer = new ArrayList<>();
+        );
+            results.get(results.size() - 1)
+        ArrayList<Integer> answer = new ArrayList<>(
+        // Initialize answer as a number from results.
+    // Calculate the sum of all of the results from multiplyOneDigit.
+    private StringBuilder sumResults(ArrayList<ArrayList<Integer>> results) {
+class Solution {
