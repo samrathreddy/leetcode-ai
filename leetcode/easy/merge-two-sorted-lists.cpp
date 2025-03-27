@@ -40,7 +40,7 @@ Constraints:
  * -100 <= Node.val <= 100
  * Both list1 and list2 are sorted in non-decreasing order.
 */
-// URL: https://leetcode.com/problems/merge-two-sorted-lists/description/
+// URL: https://leetcode.com/problems/merge-two-sorted-lists/
 
         }
                 swap(l1,l2); // haar baar l1 hi chota hoga
@@ -55,14 +55,21 @@ Constraints:
             
         ListNode* result = l1;
         ListNode* temp = NULL;
-            swap(l1,l2);    // haar baar l1 hi chota hoga
+         while(l1 != NULL){
+            temp->next = l1;
+            temp = l1;
+            l2 = l2->next;
         }
-
+        while(l2 != NULL){
+            temp->next = l2;
+        }
+            swap(l1,l2);    // haar baar l1 hi chota hoga
         if(l1->val > l2->val){  // taking L1 is smaller than l2 
+
+
         if(l1 == NULL) return l2;
         if(l2 == NULL) return l1;
-
+        
 public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
-        
 class Solution {
